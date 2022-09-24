@@ -25,6 +25,7 @@ const Login = () => {
           path: "/",
           maxAge: 60 * 10,
         });
+        navigate("/playlist");
       }
     }
   }, [dispatch, navigate]);
