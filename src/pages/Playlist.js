@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import TrackItem from "../components/TrackItem";
 import { getPlaylistCall } from "../redux/api/playlistApiCall";
 import { GiPauseButton } from "react-icons/gi";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
