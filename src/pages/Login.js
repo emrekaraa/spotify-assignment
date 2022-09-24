@@ -41,7 +41,8 @@ const Login = () => {
     ];
 
     const clientId = "c705ea256eff48a6a29a2d65b4117025";
-    const redirectUrl = "https://spotify-player-assignment.netlify.app/";
+    const redirectUrl =
+      "https://spotify-player-assignment.netlify.app/playlist";
     // const redirectUrl = "http://localhost:3000/";
 
     window.location.href = `${AUTH_URL}?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=token&show_dialog=true&scope=${scope.join(
