@@ -1,4 +1,4 @@
-# YouTube Clone React Demo Link
+# Spotify Player
 - Click To View: [https://spotify-player-assignment.netlify.app](https://spotify-player-assignment.netlify.app)
 
 
