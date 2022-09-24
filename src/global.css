@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(171, 102, 255, 1) 0%,
+    rgba(116, 182, 247, 1) 90%
+  );
+}
+
+.dragDropFixed {
+  position: relative;
+}
+.dragDropFixed:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.scrollHidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollHidden::-webkit-scrollbar {
+  @apply hidden !important;
+}
