@@ -41,6 +41,7 @@ const playlistSlice = createSlice({
         }
       });
     },
+
     setNowPlaying: (state, action) => {
       const id = action.payload;
       state.nowPlaying = state.tracks.find((track) => track.id === id);

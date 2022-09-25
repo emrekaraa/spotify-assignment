@@ -41,13 +41,18 @@ const Login = () => {
       "user-modify-playback-state",
     ];
 
-    const clientId = "c705ea256eff48a6a29a2d65b4117025";
-    const redirectUrl = "https://spotify-player-assignment.netlify.app/";
-    // const redirectUrl = "http://localhost:3000/";
+    const clientId =
+      process.env.REACT_APP_CLIENT_ID || "c705ea256eff48a6a29a2d65b4117025";
+    const redirectUrl =
+      process.env.REACT_APP_REDIRECT_URL || "http://localhost:3000/";
 
-    window.location.href = `${AUTH_URL}?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=token&show_dialog=true&scope=${scope.join(
-      "%20"
-    )}`;
+    window.location.href = `${AUTH_URL}?client_id=${clientId.replace(
+      /["]/g,
+      ""
+    )}&redirect_uri=${redirectUrl.replace(
+      /["]/g,
+      ""
+    )}&response_type=token&show_dialog=true&scope=${scope.join("%20")}`;
   };
   return (
     <div className="h-screen flex justify-center items-center bg-green-500 px-4">

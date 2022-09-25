@@ -1,7 +1,11 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { setIsNowPlaying } from "../slice/playlistSlice";
-import { HEADERS_WITH_TOKEN, ROOT_URL } from "./constants";
+import {
+  HEADERS_UNAUTHORIZED,
+  HEADERS_WITH_TOKEN,
+  ROOT_URL,
+} from "./constants";
 
 export const getPlaylistCall = createAsyncThunk(
   "fetchPlaylist",
@@ -33,6 +37,26 @@ export const getTrackCall = createAsyncThunk(
       dispatch(setIsNowPlaying(response.data.id));
 
       return response.data;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+);
+
+export const playTrackApiCall = createAsyncThunk(
+  "playTrack",
+  async ({ spotifyUri, deviceId }, { dispatch, getState }) => {
+    try {
+      axios.put(
+        `${ROOT_URL}/me/player/play?device_id=${deviceId}`,
+        {
+          uris: [spotifyUri],
+        },
+        {
+          headers: HEADERS_WITH_TOKEN(getState().auth.authToken),
+        }
+      );
     } catch (error) {
       console.log(error);
       throw error;

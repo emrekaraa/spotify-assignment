@@ -23,11 +23,9 @@ const SortableTracks = () => {
       <div className={`flex flex-col gap-4 p-4 text-white relative`}>
         {tracks?.length
           ? tracks?.map((track, index) => (
-              <>
-                <div className="relative" key={`tracks-${index}`}>
-                  <SortableItem index={index} track={track} />
-                </div>
-              </>
+              <div key={track.id} className="relative">
+                <SortableItem index={index} track={track} />
+              </div>
             ))
           : null}
       </div>
