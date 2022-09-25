@@ -8,6 +8,7 @@ import { setModalOpen } from "../redux/slice/modalSlice";
 import Modal from "../components/Modal";
 import SortableTracks from "../components/SortableTracks";
 import SpotifyPlayerSDK from "../components/SpotifyPlayerSDK";
+import nookies from "nookies";
 
 const Playlist = () => {
   const navigate = useNavigate();
@@ -54,6 +55,11 @@ const Playlist = () => {
           <button
             onClick={() => {
               setOnLogOut(true);
+
+              setTimeout(() => {
+                nookies.destroy(null, "authToken");
+                navigate("/");
+              }, 1000);
             }}
             className="bg-green-500 hover:bg-green-600 text-white mt-4 py-2 px-10 rounded-full flex items-center gap-1"
           >
